@@ -14,7 +14,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private Button mybutton3;
 
-    private Com mecom=null;
+    private TestComlib mecom=null;
 
     private TextView mytextview;
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
         mytextview=(TextView)findViewById(R.id.textView);
 
-        mecom=new Com();
+        mecom=new TestComlib();
     }
     public void onClick(View v){
         switch (v.getId()){
@@ -42,8 +42,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 mecom.Init_COM();
                 break;
             case R.id.Read_com:
-                mecom.Read_COM("test");
+
                 mytextview.setText("Read_com");
+                mecom.Init_COM();
+                mecom.Read_COM("test");
                 break;
             case R.id.Send_com:
                 mecom.Send_COM("test");
